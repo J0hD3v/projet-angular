@@ -13,6 +13,7 @@ export class OneFriendComponent {
   oneFriendStatus :string = "Online"
   oneFriendBio :string = "Le best"
   oneFriendXss :string = "<script>alert('Hello, XSS')</script>"
+  oneFriendImg :string = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXZ6Vw-Br-RRvMstTlTqbeGXw4PNepXRrTzg&s"
   getOneFriendStatus (): string {
     return this.oneFriendStatus
   }

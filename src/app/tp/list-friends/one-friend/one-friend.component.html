@@ -4,6 +4,12 @@
     {{oneFriendAge}}
     {{oneFriendStatus}}
     {{oneFriendBio}}
-    {{oneFriendXss}}
     {{getOneFriendStatus()}}
 </pre>
+
+<p>{{oneFriendXss}}</p>
+<p class="card-text">Réputation :  {{oneFriendStatus=='Online' ? 'Ringard' : 'Cool'}}</p>
+
+<p>Statut : <span [style.color]="oneFriendStatus=='Online' ? 'green' : 'red'">●</span></p>
+
+<img [src]="oneFriendImg" alt="image mario">
