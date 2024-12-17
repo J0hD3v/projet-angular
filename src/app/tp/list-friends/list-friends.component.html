@@ -1,14 +1,16 @@
 <section class="d-flex flex-column align-items-center m-4 p-3 bg-danger-subtle">
     <button [disabled]="listFriendsAuth">Bouton disabled apres 3s</button>
     <br>
-    <button (click)="updateStatus()">Recevoir un KDO</button>
-    <br>
-    <p>{{listFriendsCreationStatus}}</p>
-    <br>
-    <input (input)="onInput($event)" type="text">
-    <p>{{inputCopie}}</p>
 
-    <input [(ngModel)]="uneData" type="text">
-    <p>{{uneData}}</p>
-    <app-one-friend></app-one-friend>
+    <input [(ngModel)]="uneData" type="text" placeholder="Nom du nouvel ami">
+    <br>
+    <button (click)="updateStatus()">Ajouter un ami</button>
+    <br>
+    <p *ngIf="listFriendCreated; else notCreated">Un ami a été créé il s'agit de ... {{uneData}}</p>
+    <ng-template #notCreated>Pas d'amis</ng-template>
+    <br>
+
+    <hr style="border: 1px solid black; opacity: 1; width: 50%;">
+
+    <app-one-friend *ngFor="let friend of listFriendsTab"></app-one-friend>
 </section>
