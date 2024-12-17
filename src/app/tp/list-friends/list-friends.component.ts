@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { OneFriendComponent } from './one-friend/one-friend.component';
+import { FormsModule } from '@angular/forms'; // permet le 2 way binding avec ngModel
 
 @Component({
   selector: 'app-list-friends',
   imports: [
-    OneFriendComponent
+    OneFriendComponent,
+    FormsModule,
   ],
   templateUrl: './list-friends.component.html',
   styleUrl: './list-friends.component.css'
@@ -17,7 +19,7 @@ export class ListFriendsComponent {
     }, 3000);
   }
 
-  //question 1
+  // question 1
   listFriendsCreationStatus:string="rien"
   updateStatus(): void {
     this.listFriendsCreationStatus = "Félicitations ! 🎁"
@@ -29,4 +31,7 @@ export class ListFriendsComponent {
     console.log(event);
     this.inputCopie = (<HTMLInputElement>event.target).value
   }
+
+  // avec ngModel
+  uneData:string = ""
 }
