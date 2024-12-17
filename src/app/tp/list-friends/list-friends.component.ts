@@ -15,5 +15,18 @@ export class ListFriendsComponent {
     setTimeout(() => {
       this.listFriendsAuth = !this.listFriendsAuth;
     }, 3000);
-   }
+  }
+
+  //question 1
+  listFriendsCreationStatus:string="rien"
+  updateStatus(): void {
+    this.listFriendsCreationStatus = "Félicitations ! 🎁"
+  }
+
+  // question 2
+  inputCopie:string = "vide"
+  onInput(event:Event): void {
+    console.log(event);
+    this.inputCopie = (<HTMLInputElement>event.target).value
+  }
 }

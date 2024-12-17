@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class OneFriendComponent {
   oneFriendId:number = 1
-  oneFriendName :string = "Hervé"
+  oneFriendName :string = "Mario"
   oneFriendAge:number = 50
   oneFriendStatus :string = "Online"
   oneFriendBio :string = "Le best"

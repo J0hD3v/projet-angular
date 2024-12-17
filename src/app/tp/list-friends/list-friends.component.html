@@ -1,2 +1,11 @@
-<button [disabled]="listFriendsAuth">Desactiver le bouton</button>
-<app-one-friend></app-one-friend>
+<section class="d-flex flex-column align-items-center m-4 p-3 bg-danger-subtle">
+    <button [disabled]="listFriendsAuth">Bouton disabled apres 3s</button>
+    <br>
+    <button (click)="updateStatus()">Recevoir un KDO</button>
+    <br>
+    <p>{{listFriendsCreationStatus}}</p>
+    <br>
+    <input (input)="onInput($event)" type="text">
+    <p>{{inputCopie}}</p>
+    <app-one-friend></app-one-friend>
+</section>

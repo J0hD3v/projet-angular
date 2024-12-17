@@ -1,15 +1,14 @@
-<pre>
-    {{oneFriendId}}
-    {{oneFriendName}}
-    {{oneFriendAge}}
-    {{oneFriendStatus}}
-    {{oneFriendBio}}
-    {{getOneFriendStatus()}}
-</pre>
-
-<p>{{oneFriendXss}}</p>
-<p class="card-text">Réputation :  {{oneFriendStatus=='Online' ? 'Ringard' : 'Cool'}}</p>
-
-<p>Statut : <span [style.color]="oneFriendStatus=='Online' ? 'green' : 'red'">●</span></p>
-
-<img [src]="oneFriendImg" alt="image mario">
+<article class="d-flex flex-column align-items-center text-center">
+    <pre>
+ID: {{oneFriendId}}
+Nom: {{oneFriendName}}
+Age: {{oneFriendAge}} ans
+Bio: {{oneFriendBio}}
+Statut: {{oneFriendStatus}}
+Rappel statut: {{getOneFriendStatus()}}
+    </pre>
+    <p class="card-text">Réputation :  {{oneFriendStatus=='Online' ? 'Ringard' : 'Cool'}}</p>
+    <p>Statut : <span [style.color]="oneFriendStatus=='Online' ? 'green' : 'red'">●</span></p>
+    <img [src]="oneFriendImg" alt="image mario">
+    <p>test injection XSS : {{oneFriendXss}}</p>
+</article>
