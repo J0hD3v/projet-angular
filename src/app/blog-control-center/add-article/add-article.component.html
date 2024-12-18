@@ -1,0 +1,16 @@
+<section class="d-flex flex-column align-items-center text-center m-4 bg-primary-subtle">
+    <h4>Add-Article</h4>
+
+    <p>Ajoutez un article ou un brouillon !</p>
+
+    <label for="article_title">Titre Article</label>
+    <input [(ngModel)]="name" id="article_title" type="text">
+
+    <label for="article_content">Contenu Article</label>
+    <input [(ngModel)]="content" id="article_content" type="text">
+
+    <section>
+        <button (click)="addArticle()">Ajouter Article</button>
+        <button (click)="addBrouillon()">Ajouter Brouillon</button>
+    </section>
+</section>

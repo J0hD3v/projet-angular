@@ -1,0 +1,13 @@
+<section class="d-flex flex-column align-items-center text-center m-4">
+    <h4>Article-Element</h4>
+
+    <article *ngFor="let article of articlesArray">
+        <h6>{{article.name}}</h6>
+        <section>
+            <p>{{article.content}}</p>
+            <p>{{article.date}}</p>
+            <p>{{article.author}}</p>
+            <p>Type : {{article.type}}</p>
+        </section>
+    </article>
+</section>

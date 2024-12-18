@@ -1,0 +1,6 @@
+article {
+    padding: 1em 10em;
+    &:nth-of-type(odd) {
+        background-color: burlywood;
+    }
+}
