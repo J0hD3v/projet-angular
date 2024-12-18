@@ -3,5 +3,5 @@
 }
 
 .amiOff {
-    background: linear-gradient(166deg, rgb(173, 2, 2) 0%, rgba(255,0,0,1) 18%, rgba(255,150,0,1) 100%);
+    background: linear-gradient(166deg, rgba(144,0,0,1) 0%, rgba(255,0,0,1) 18%, rgba(255,150,0,1) 100%);
 }

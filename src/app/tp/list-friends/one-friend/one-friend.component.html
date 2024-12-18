@@ -8,7 +8,7 @@ Statut: {{oneFriendStatus}}
 Rappel statut: {{getOneFriendStatus()}}
     </pre>
     <p class="card-text">Réputation :  {{oneFriendStatus=='Online' ? 'Ringard' : 'Cool'}}</p>
-    <p>Statut : <span [style.color]="oneFriendStatus=='Online' ? 'green' : 'red'">●</span></p>
+    <p>Statut : <span [style.color]="oneFriendStatus=='Online' ? 'green' : 'red'" [style]>●</span></p>
     <img [src]="oneFriendImg" alt="image mario">
     <p>test injection XSS : {{oneFriendXss}}</p>
 </article>
