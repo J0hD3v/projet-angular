@@ -26,7 +26,7 @@ export class ListFriendsComponent {
   // question 1
   listFriendsCreationStatus:string="rien"
   updateStatus(): void {
-    this.listFriendCreated = true;
+    this.listFriendCreated = this.uneData != "" ? true : false;
   }
 
   // avec ngModel

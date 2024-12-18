@@ -1,0 +1,7 @@
+.amiOn {
+    background: linear-gradient(166deg, rgb(76, 70, 187) 0%, rgb(80, 105, 214) 18%, rgb(79, 210, 243) 100%);
+}
+
+.amiOff {
+    background: linear-gradient(166deg, rgb(173, 2, 2) 0%, rgba(255,0,0,1) 18%, rgba(255,150,0,1) 100%);
+}

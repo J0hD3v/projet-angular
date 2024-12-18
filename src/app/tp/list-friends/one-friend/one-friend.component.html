@@ -1,7 +1,7 @@
-<article class="d-flex flex-column align-items-center text-center">
+<article class="d-flex flex-column align-items-center text-center"  [ngClass]="getClass()">
+    <h2 [ngStyle]="{color: getColor()}">Nom: {{oneFriendName}}</h2>
     <pre>
 ID: {{oneFriendId}}
-Nom: {{oneFriendName}}
 Age: {{oneFriendAge}} ans
 Bio: {{oneFriendBio}}
 Statut: {{oneFriendStatus}}
