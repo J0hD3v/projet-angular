@@ -3,5 +3,5 @@
     <br>
     <p *ngIf="isDisplayed">du texte</p>
     <br>
-    <p [ngStyle]="{background: i>5 ? 'green' : 'transparent'}" *ngFor="let case of displayedArray; let i=index">{{case}}</p>
+    <p [ngStyle]="{background: i>=4 ? 'green' : 'none'}" *ngFor="let case of displayedArray; let i=index">{{case}}</p>
 </section>
