@@ -12,5 +12,7 @@ export const routes: Routes = [
   { path: 'app-tp-directives', loadComponent: () => import('./tp/tp-directives/tp-directives.component').then(m => m.TpDirectivesComponent) },
   { path: 'app-blog-control-center', loadComponent: () => import('./blog-control-center/blog-control-center.component').then(m => m.BlogControlCenterComponent) },
   { path: 'app-pokemons-list', loadComponent: () => import('./pokemons-list/pokemons-list.component').then(m => m.PokemonsListComponent) },
+  { path: 'app-profiles-manager', loadComponent: () => import('./profiles-manager/profiles-manager.component').then(m => m.ProfilesManagerComponent) },
+  { path: 'app-profile-details/:id', loadComponent: () => import('./profiles-manager/profil-details/profil-details.component').then(m => m.ProfilDetailsComponent) },
   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent) },
 ];

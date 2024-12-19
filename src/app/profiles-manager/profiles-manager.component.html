@@ -1,0 +1,43 @@
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">Profiles Manager</h1>
+  
+    <!-- Formulaire pour ajouter un nouveau profil -->
+    <div class="card shadow-sm p-4 mb-5">
+      <h2 class="text-secondary">Ajouter un nouveau profil</h2>
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="nameInput" class="form-label">Nom</label>
+          <input [(ngModel)]="name" id="nameInput" name="name" placeholder="Entrez le nom" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label for="statusInput" class="form-label">Statut</label>
+          <input [(ngModel)]="status" id="statusInput" name="status" placeholder="Entrez le statut" class="form-control" />
+        </div>
+        <div class="col-12 text-center">
+          <button (click)="onAjouterProfil()" type="button" class="btn btn-primary mt-3">Ajouter Profil</button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Liste des profils -->
+    <div class="card shadow-sm p-4">
+      <h2 class="text-secondary mb-4">Liste des profils from ... Le Service</h2>
+      <ul class="list-group">
+        <li *ngFor="let profil of profilsArray" class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>{{ profil.name }}</strong> - <span class="badge bg-info text-dark">{{ profil.status }}</span>
+          </div>
+          <div>
+            <button (click)="onMettreEnLigne(profil.id)" class="btn btn-success btn-sm me-2">Mettre en ligne</button>
+            <button (click)="onMettreHorsLigne(profil.id)" class="btn btn-warning btn-sm">Mettre hors ligne</button>
+            <a
+              [routerLink]="['/app-profile-details', profil.id]"
+              class="btn btn-outline-primary btn-sm ms-2"
+            >
+              Voir Détail
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+</div>
