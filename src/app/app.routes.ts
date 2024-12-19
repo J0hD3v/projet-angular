@@ -11,5 +11,6 @@ export const routes: Routes = [
   { path: 'app-tp-data-binding', loadComponent: () => import('./tp/tp-data-binding/tp-data-binding.component').then(m => m.TPDataBindingComponent) },
   { path: 'app-tp-directives', loadComponent: () => import('./tp/tp-directives/tp-directives.component').then(m => m.TpDirectivesComponent) },
   { path: 'app-blog-control-center', loadComponent: () => import('./blog-control-center/blog-control-center.component').then(m => m.BlogControlCenterComponent) },
+  { path: 'app-pokemons-list', loadComponent: () => import('./pokemons-list/pokemons-list.component').then(m => m.PokemonsListComponent) },
   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent) },
 ];

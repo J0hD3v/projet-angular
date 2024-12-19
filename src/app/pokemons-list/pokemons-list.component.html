@@ -1,0 +1,21 @@
+<section class="d-flex flex-column align-items-center">
+    <article *ngFor="let pokemon of pokemons" class="bg-secondary-subtle m-2 p-3">
+    
+        <pre>
+    ID Pokedex: {{pokemon.pokedex_id}}
+    Nom: {{pokemon.name.fr}}        {{pokemon.category}}        Type: <span *ngFor="let type of pokemon.types">{{type.name}} </span>
+        </pre>
+        <pre>
+    Pv: {{pokemon.stats.hp}}       Atq spé: {{pokemon.stats.spe_atk}}
+    Atq: {{pokemon.stats.atk}}      Def spé: {{pokemon.stats.spe_def}}
+    Def: {{pokemon.stats.def}}      Vit: {{pokemon.stats.vit}}
+        </pre>
+        <p> Compétences:</p>
+        <ul class="m-0">
+            <li *ngFor="let talent of pokemon.talents">{{talent.name}}</li>
+        </ul>
+        
+        <img src="{{pokemon.sprites.regular}}" alt="image {{pokemon.name.fr}}" style="width:200px">
+        <hr>
+    </article>
+</section>
