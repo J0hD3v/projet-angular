@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LoggerService } from '../services/logger.service';
 
 @Component({
   selector: 'app-home',
@@ -10,5 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  constructor(private logger: LoggerService) {
+    this.logger.logErrorCustom('Ceci est un message d\'erreur d\'exemple.');
+  }
 }

@@ -17,9 +17,21 @@ export class AddArticleComponent {
   content:string = ''
 
   addArticle():void {
-    this.notify.emit({name: this.name, content: this.content, date: new Date(), author: 'Joh', type: 'Article'})
+    this.notify.emit({
+      name: this.name,
+      content: this.content,
+      date: new Date(),
+      author: 'Joh',
+      type: 'Article'
+    })
   }
   addBrouillon():void {
-    this.notify.emit({name: this.name, content: this.content, date: new Date(), author: 'Joh', type: 'Brouillon'})
+    this.notify.emit({
+      name: this.name,
+      content: this.content,
+      date: new Date(),
+      author: 'Joh',
+      type: 'Brouillon'
+    })
   }
 }
