@@ -1,7 +1,8 @@
-<article class="d-flex flex-column align-items-center text-center">
+<article class="d-flex flex-column text-center">
     <h1>TP : Component Communication</h1>
-    <section class="d-flex flex-column align-items-center text-center p-4">
+    <section class="d-flex flex-column text-center p-4">
         <app-active-user [name]="name" [age]="age"></app-active-user>
+        <br>
         <app-user-data (notify)="notifyChildComponent($event)"></app-user-data>
     </section>
 </article>
