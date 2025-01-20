@@ -15,5 +15,6 @@ export const routes: Routes = [
   { path: 'app-profiles-manager', loadComponent: () => import('./profiles-manager/profiles-manager.component').then(m => m.ProfilesManagerComponent) },
   { path: 'app-profile-details/:id', loadComponent: () => import('./profiles-manager/profil-details/profil-details.component').then(m => m.ProfilDetailsComponent) },
   { path: 'app-lifecycle-exemple', loadComponent: () => import('./lifecycle-exemple/lifecycle-exemple.component').then(m => m.LifecycleExempleComponent) },
+  { path: 'app-communication', loadComponent: () => import('./communication/communication.component').then(m => m.CommunicationComponent) },
   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent) },
 ];
