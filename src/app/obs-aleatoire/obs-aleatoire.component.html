@@ -1,0 +1,24 @@
+<section class="container mt-5">
+    <h1 class="text-primary text-center">Générateur de Nombres Aléatoires</h1>
+
+    <section>
+        <button (click)="start()" class="btn btn-success">Démarrer</button>
+        <button *ngIf="isRunning" (click)="pause()" class="btn btn-warning">Pause</button>
+        <button *ngIf="!isRunning" (click)="resume()" class="btn btn-warning">Reprendre</button>
+        <button (click)="stop()" class="btn btn-danger">Arrêter</button>
+    </section>
+
+    <section class="form-check form-switch my-4">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" (change)="changeVisibilityEvenOdd()">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Afficher uniquement les pairs</label>
+    </section>
+
+    <section class="bg-primary-subtle p-3" *ngIf="!onlyEven">
+        <article *ngFor="let number of listValues">{{ number }}</article>
+    </section>
+
+    <section class="bg-primary-subtle p-3" *ngIf="onlyEven">
+        <article *ngFor="let number of listValues">{{ number%2==0 ? number : null }}</article>
+    </section>
+
+</section>
