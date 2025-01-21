@@ -31,11 +31,14 @@ export class ObsAleatoireComponent {
     // Lance la génération de nombres aléatoires
     this.isRunning = true;
     this.generateRandomSubscription = this.laSource.subscribe((count) => {
-      this.randomNumber = Math.floor(Math.random()*100);
-      this.listValues.push(this.randomNumber);
-      if(this.onlyEven ? this.listEvenNumbers.length : this.listValues.length == 11) {
+      while(this.listValues.length >= 10) {
         this.listValues.shift();
       }
+      while(this.listEvenNumbers.length >= 10) {
+        this.listEvenNumbers.shift();
+      }
+      this.randomNumber = Math.floor(Math.random()*100);
+      this.listValues.push(this.randomNumber);
       console.log(this.randomNumber);
     });
   }
@@ -75,6 +78,6 @@ export class ObsAleatoireComponent {
 
   getAdj(number:number) {
     //
-    return number > 50 ? 'Elevé' : 'Fabile';
+    return number > 50 ? 'Elevé' : 'Faible';
   }
 }
