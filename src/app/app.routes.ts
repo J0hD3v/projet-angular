@@ -19,5 +19,7 @@ export const routes: Routes = [
   { path: 'app-observables', loadComponent: () => import('./observables/observables.component').then(m => m.ObservablesComponent) },
   { path: 'app-obs-aleatoire', loadComponent: () => import('./obs-aleatoire/obs-aleatoire.component').then(m => m.ObsAleatoireComponent) },
   { path: 'app-pipes', loadComponent: () => import('./pipes/pipes.component').then(m => m.PipesComponent) },
+  { path: 'app-register', loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent) },
+  { path: 'app-login', loadComponent: () => import('./login/login.component').then(m => m.LoginComponent) },
   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent) },
 ];
