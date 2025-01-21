@@ -13,12 +13,10 @@
         <label class="form-check-label" for="flexSwitchCheckDefault">Afficher uniquement les pairs</label>
     </section>
 
-    <section class="bg-primary-subtle p-3" *ngIf="!onlyEven">
-        <article *ngFor="let number of listValues">{{ number }}</article>
-    </section>
-
-    <section class="bg-primary-subtle p-3" *ngIf="onlyEven">
-        <article *ngFor="let number of listValues">{{ number%2==0 ? number : null }}</article>
+    <section id="displayArea">
+        <section>
+            <article *ngFor="let number of getArray()"  class="p-3 {{ getClass(number) }}">{{ number }} - {{ getAdj(number) }}</article>
+        </section>
     </section>
 
 </section>

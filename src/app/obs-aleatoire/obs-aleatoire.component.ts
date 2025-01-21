@@ -20,6 +20,7 @@ export class ObsAleatoireComponent {
   randomNumber:number = 0;
   laSource = interval(1000);
   listValues:Array<number> = [];
+  listEvenNumbers:Array<number> = [];
   onlyEven:boolean = false;
 
   constructor() {
@@ -27,34 +28,53 @@ export class ObsAleatoireComponent {
   }
 
   start() {
-    //
+    // Lance la génération de nombres aléatoires
+    this.isRunning = true;
     this.generateRandomSubscription = this.laSource.subscribe((count) => {
       this.randomNumber = Math.floor(Math.random()*100);
       this.listValues.push(this.randomNumber);
-      this.isRunning = true;
-      console.log(this.randomNumber); // Affiche dans la console
+      if(this.onlyEven ? this.listEvenNumbers.length : this.listValues.length == 11) {
+        this.listValues.shift();
+      }
+      console.log(this.randomNumber);
     });
   }
   
   pause() {
-    //
-    this.generateRandomSubscription.unsubscribe();
+    // Met en pause la génération de nbr aléatoires (appuyer sur Reprendre pour continuer en gardant la liste)
     this.isRunning = false;
+    this.generateRandomSubscription.unsubscribe();
   }
   
   resume() {
-    //
+    // Interrompt la pause
     this.start();
   }
   
   stop() {
-    //
+    // Arrête la génération de nombre aléatoires (efface la liste)
     this.pause();
     this.listValues = [];
   }
 
   changeVisibilityEvenOdd() {
-    //
+    // toggle visibilité nombres impairs
     this.onlyEven = !this.onlyEven;
+  }
+
+  getArray() {
+    // retourne le tableau de nombres complet ou seulement les nombres pairs
+    this.listEvenNumbers = this.listValues.filter(number => number%2 == 0);
+    return this.onlyEven ? this.listEvenNumbers : this.listValues;
+  }
+
+  getClass(number:number) {
+    // retourne le style correspondant au nombre
+    return number > 50 ? 'bg-danger-subtle' : 'bg-primary-subtle';
+  }
+
+  getAdj(number:number) {
+    //
+    return number > 50 ? 'Elevé' : 'Fabile';
   }
 }
