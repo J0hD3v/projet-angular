@@ -3,7 +3,7 @@
         <img style="height: 100px;" src="https://c.tenor.com/oeY8e8nh6d0AAAAC/shiny-wartortle-pokemon.gif" />
         <h2 class="text-end">Monstre ❤️</h2>
         <div class="healthbar">
-            <div class="healthbar__value" :style="monsterBarStyles"></div>
+            <div class="healthbar__value" [ngStyle]="{width: monsterBarStyles().width}"></div>
         </div>
     </section>
     <section id="player" class="container">
@@ -11,36 +11,43 @@
             src="https://pa1.aminoapps.com/6409/6e968a5793078ada47a79809c3e67acd17805dc2_hq.gif" />
         <h2 class="text-start">Player ❤️</h2>
         <div class="healthbar">
-            <div class="healthbar__value" :style="playerBarStyles"></div>
+            <div class="healthbar__value" [ngStyle]="{width: playerBarStyles().width}"></div>
         </div>
     </section>
-    <section class="container" v-if="winner">
-        <h2>Game Over!</h2>
-        <h3 v-if="winner === 'monster'">PERDU / WASTED / YOU DIED</h3>
-        <h3 v-else-if="winner === 'player'">VICTOIRE</h3>
-        <h3 v-else>Match NUL!</h3>
+    <section class="container" *ngIf="winner; else controls">
+        <h3 *ngIf="winner === 'monster'; else player">Game Over!</h3>
+        <ng-template #player>
+            <h3 *ngIf="winner === 'player'; else egalite">VICTOIRE</h3>
+        </ng-template>
+        <ng-template #egalite>
+            <h3>Match NUL!</h3>
+        </ng-template>
         <button (click)="startGame()">Commencer une nouvelle partie</button>
     </section>
-    <section id="controls" v-else>
-        <button (click)="attackMonster()">ATTACK</button>
-        <button :disabled="mayUseSpecialAttack" (click)="specialAttackMonster()">SPECIAL ATTACK</button>
-        <button (click)="healPlayer()">SOIN</button>
-        <button (click)="surrender()">Abandonner</button>
-    </section>
+    <ng-template #controls>
+        <section id="controls">
+            <button (click)="attackMonster()">ATTACK</button>
+            <button [disabled]="mayUseSpecialAttack()" (click)="specialAttackMonster()">SPECIAL ATTACK</button>
+            <button (click)="healPlayer()">SOIN</button>
+            <button (click)="surrender()">Abandonner</button>
+        </section>
+    </ng-template>
     <section id="log" class="container">
         <h2>Battle Log</h2>
         <ul>
-            <li v-for="logMessage in logMessages" :key="logMessage.id">
+            <li *ngFor="let logMessage of logMessages">
                 <span
                     :class="{ 'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster' }">
                     {{ logMessage.actionBy === 'player' ? 'Player' : 'Monster' }}
                 </span>
-                <span v-if="logMessage.actionType === 'heal'">
+                <span *ngIf="logMessage.actionType === 'heal'; else attaque">
                     Se soigne de <span class="log--heal">{{ logMessage.actionValue }}</span>
                 </span>
-                <span v-else>
-                    Attaque : <span class="log--damage">-{{ logMessage.actionValue }} pts</span>
-                </span>
+                <ng-template #attaque>
+                    <span>
+                        Attaque : <span class="log--damage">-{{ logMessage.actionValue }} pts</span>
+                    </span>
+                </ng-template>
             </li>
         </ul>
     </section>
