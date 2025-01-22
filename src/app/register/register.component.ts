@@ -49,6 +49,7 @@ export class RegisterComponent {
       .then((userCredential) => {
         this.user = userCredential.user;
         console.log('Utilisateur inscrit:', userCredential);
+        this.error = null;
       })
       .catch((error) => {
         this.error = error.message;

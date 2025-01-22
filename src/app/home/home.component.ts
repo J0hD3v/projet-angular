@@ -12,6 +12,6 @@ import { LoggerService } from '../services/logger.service';
 })
 export class HomeComponent {
   constructor(private logger: LoggerService) {
-    this.logger.logErrorCustom('Ceci est un message d\'erreur d\'exemple.');
+    // this.logger.logErrorCustom('Ceci est un message d\'erreur d\'exemple.');
   }
 }

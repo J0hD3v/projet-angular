@@ -1,0 +1,47 @@
+<div id="game">
+    <section id="monster" class="container">
+        <img style="height: 100px;" src="https://c.tenor.com/oeY8e8nh6d0AAAAC/shiny-wartortle-pokemon.gif" />
+        <h2 class="text-end">Monstre ❤️</h2>
+        <div class="healthbar">
+            <div class="healthbar__value" :style="monsterBarStyles"></div>
+        </div>
+    </section>
+    <section id="player" class="container">
+        <img style="height: 100px;"
+            src="https://pa1.aminoapps.com/6409/6e968a5793078ada47a79809c3e67acd17805dc2_hq.gif" />
+        <h2 class="text-start">Player ❤️</h2>
+        <div class="healthbar">
+            <div class="healthbar__value" :style="playerBarStyles"></div>
+        </div>
+    </section>
+    <section class="container" v-if="winner">
+        <h2>Game Over!</h2>
+        <h3 v-if="winner === 'monster'">PERDU / WASTED / YOU DIED</h3>
+        <h3 v-else-if="winner === 'player'">VICTOIRE</h3>
+        <h3 v-else>Match NUL!</h3>
+        <button (click)="startGame()">Commencer une nouvelle partie</button>
+    </section>
+    <section id="controls" v-else>
+        <button (click)="attackMonster()">ATTACK</button>
+        <button :disabled="mayUseSpecialAttack" (click)="specialAttackMonster()">SPECIAL ATTACK</button>
+        <button (click)="healPlayer()">SOIN</button>
+        <button (click)="surrender()">Abandonner</button>
+    </section>
+    <section id="log" class="container">
+        <h2>Battle Log</h2>
+        <ul>
+            <li v-for="logMessage in logMessages" :key="logMessage.id">
+                <span
+                    :class="{ 'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster' }">
+                    {{ logMessage.actionBy === 'player' ? 'Player' : 'Monster' }}
+                </span>
+                <span v-if="logMessage.actionType === 'heal'">
+                    Se soigne de <span class="log--heal">{{ logMessage.actionValue }}</span>
+                </span>
+                <span v-else>
+                    Attaque : <span class="log--damage">-{{ logMessage.actionValue }} pts</span>
+                </span>
+            </li>
+        </ul>
+    </section>
+</div>

@@ -38,13 +38,14 @@ export class LoginComponent {
 
   private auth: Auth = inject(Auth);
 
-  constructor() {}
+  constructor() {console.log(this.user)}
 
   signIn() {
     signInWithEmailAndPassword(this.auth, this.email, this.password)
       .then((userCredential) => {
         this.user = userCredential.user;
         console.log('Utilisateur connecté:', userCredential);
+        this.error = null;
       })
       .catch((error) => {
         this.error = error.message;

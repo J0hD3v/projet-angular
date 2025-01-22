@@ -21,5 +21,8 @@ export const routes: Routes = [
   { path: 'app-pipes', loadComponent: () => import('./pipes/pipes.component').then(m => m.PipesComponent) },
   { path: 'app-register', loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent) },
   { path: 'app-login', loadComponent: () => import('./login/login.component').then(m => m.LoginComponent) },
+  { path: 'app-pokemon-game', loadComponent: () => import('./pokemon-game/pokemon-game.component').then(m => m.PokemonGameComponent) },
+  { path: 'app-user-page', loadComponent: () => import('./user-page/user-page.component').then(m => m.UserPageComponent) },
+  { path: 'app-firebase', loadComponent: () => import('./firebase/firebase.component').then(m => m.FirebaseComponent) },
   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent) },
 ];
