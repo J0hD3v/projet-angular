@@ -24,5 +24,6 @@ export const routes: Routes = [
   { path: 'app-pokemon-game', loadComponent: () => import('./pokemon-game/pokemon-game.component').then(m => m.PokemonGameComponent) },
   { path: 'app-user-page', loadComponent: () => import('./user-page/user-page.component').then(m => m.UserPageComponent) },
   { path: 'app-firebase', loadComponent: () => import('./firebase/firebase.component').then(m => m.FirebaseComponent) },
+  { path: 'app-signals', loadComponent: () => import('./signals/signals.component').then(m => m.SignalsComponent) },
   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent) },
 ];
