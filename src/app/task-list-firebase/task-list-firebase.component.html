@@ -1,1 +1,22 @@
-<p>task-list-firebase works!</p>
+<div class="container mt-5">
+    <h2>Liste des tâches</h2>
+    <form (ngSubmit)="addTask()" class="d-flex mb-3">
+      <input
+        [(ngModel)]="newTask.title"
+        name="task"
+        type="text"
+        placeholder="Nouvelle tâche"
+        class="form-control me-2"
+      />
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+
+    <ul class="list-group">
+      <li *ngFor="let task of tasks" class="list-group-item d-flex justify-content-between">
+        {{ task.title }}
+        <span [ngClass]="getStyleStatus(task.status)" class="rounded-pill py-1 px-3">{{ task.status }}</span>
+        <button class="rounded bg-info border-0 text-light">Changer le statut</button>
+        <button (click)="deleteTask(task.id)" class="rounded bg-danger border-0 text-light">Supprimer</button>
+      </li>
+    </ul>
+</div>
