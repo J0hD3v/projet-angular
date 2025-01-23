@@ -13,6 +13,10 @@ export class SignalsComponent {
   multiplier = signal(2);
 
   // Signal dérivé avec `computed`
+  // ! computed est utilisé pour définir des valeurs qui dépendent d'autres signals ou d'autres données réactives.
+  // ! Ces valeurs sont automatiquement recalculées uniquement lorsque les dépendances changent.
+  // ! Objectif principal : Produire des valeurs dérivées de manière efficace.
+  // ! Exemple d'usage : Calculer des données comme des totaux, des filtres, ou des transformations.
   multipliedCount = computed(() => this.count() * this.multiplier());
 
   // Exemple 2 : Historique des valeurs
@@ -24,6 +28,10 @@ export class SignalsComponent {
 
   constructor() {
     // Effet pour observer les changements de `count` et mettre à jour l'historique
+    // ! effect est utilisé pour exécuter des effets secondaires (comme des opérations qui ne produisent pas de valeur), en réponse à des changements de signals.
+    // ! Les effets sont automatiquement déclenchés lorsqu'une ou plusieurs dépendances changent.
+    // ! Objectif principal : Réagir aux modifications des données pour déclencher une action (ex. : mise à jour du DOM, appel d'API, logs).
+    // ! Exemple d'usage : Synchroniser les données avec une API ou mettre à jour l'interface utilisateur.
     effect(() => {
       const currentCount = this.count();
       this.updateHistory(currentCount); // Met à jour l'historique
@@ -35,6 +43,7 @@ export class SignalsComponent {
   }
 
   // Méthodes pour gérer le compteur
+  // ! Utilise SET pour mettre a jour la valeur
   increment() {
     this.count.set(this.count() + 1);
   }
