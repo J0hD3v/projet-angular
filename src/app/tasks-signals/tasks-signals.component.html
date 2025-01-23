@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <h2>Liste des tâches</h2>
+    <form (ngSubmit)="addTask()" class="d-flex mb-3">
+      <input
+        name="title"
+        type="text"
+        placeholder="Nouvelle tâche"
+        class="form-control me-2"
+        [ngClass]="titleBorder"
+        (change)="updateNewTaskTitle($event)"
+      />
+      <select name="priority" class="form-control me-3" (change)="updateNewTaskPriority($event)">
+        <option>moyenne</option>
+        <option>haute</option>
+        <option>basse</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+
+    <h4>Tâches créées</h4>
+    <ul class="list-group mb-3" id="tasksArea">
+      <li *ngFor="let task of tasks" [ngClass]="getStyleStatus(task.complete)" class="list-group-item d-flex justify-content-between">
+        {{ task.title }}
+        <strong>({{ task.priority.value }})</strong>
+        <button (click)="markAsDone(task)" class="rounded bg-primary border-0 text-light" *ngIf="!task.complete">Marquer comme complétée</button>
+        <button (click)="deleteTask(task)" class="rounded bg-danger border-0 text-light">Supprimer</button>
+      </li>
+    </ul>
+
+    <h4>Statistiques</h4>
+    <section class="mb-3">
+        <p class="text-success">Tâches réalisées : {{ calculCompletedTasks() }}</p>
+        <p class="text-danger">Tâches à faire : {{ calculRemainingTasks() }}</p>
+    </section>
+
+    <section *ngIf="isTodoListEmpty">
+        <h2>FELICITATIONS, vous n'avez rien à faire !</h2>
+    </section>
+</div>

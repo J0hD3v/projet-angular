@@ -26,5 +26,6 @@ export const routes: Routes = [
   { path: 'app-firebase', loadComponent: () => import('./firebase/firebase.component').then(m => m.FirebaseComponent) },
   { path: 'app-signals', loadComponent: () => import('./signals/signals.component').then(m => m.SignalsComponent) },
   { path: 'app-task-list-firebase', loadComponent: () => import('./task-list-firebase/task-list-firebase.component').then(m => m.TaskListFirebaseComponent) },
+  { path: 'app-tasks-signals', loadComponent: () => import('./tasks-signals/tasks-signals.component').then(m => m.TasksSignalsComponent) },
   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent) },
 ];
